@@ -1,73 +1,31 @@
-import re
-import math
+# Trigonometry Bot
 
-def solve_math_expression(expression):
-    try:
-        result = eval(expression)
-        return result
-    except:
-        return "Invalid expression or operation."
+Trigonometry Bot is a Python script that serves as a simple solver for various trigonometric identities. It allows users to input trigonometric expressions and provides corresponding solutions based on known trigonometric identities.
 
-def main():
-    print("Trigonometric Questions Solver Bot")
-    print("Type 'exit' to quit.")
+## Features
 
-    trig_identities = [
-        # Pythagorean Identities
-        {"question": "sin^2(θ) + cos^2(θ)", "expression": "1", "variables": {"θ": 0}},
-        {"question": "tan^2(θ) + 1", "expression": "sec^2(θ)", "variables": {"θ": 0}},
-        {"question": "cot^2(θ) + 1", "expression": "csc^2(θ)", "variables": {"θ": 0}},
+- Solves a variety of trigonometric identities.
+- Interactive user interface for input and output.
+- Provides quick answers based on predefined identities.
+- Extendable for adding more trigonometric identities.
 
-        # Reciprocal Identities
-        {"question": "csc(θ)", "expression": "1 / sin(θ)", "variables": {"θ": 0}},
-        {"question": "sec(θ)", "expression": "1 / cos(θ)", "variables": {"θ": 0}},
-        {"question": "cot(θ)", "expression": "1 / tan(θ)", "variables": {"θ": 0}},
+## How to Use
 
-        # Quotient Identities
-        {"question": "tan(θ)", "expression": "sin(θ) / cos(θ)", "variables": {"θ": 0}},
-        {"question": "cot(θ)", "expression": "cos(θ) / sin(θ)", "variables": {"θ": 0}},
+1. Run the script: Open your terminal or command prompt and navigate to the directory where the script is located.
+2. Execute the script: Use the command `python trigonometry_bot.py` to start the solver.
+3. Enter a math question: Input a trigonometric identity or expression and press Enter.
+4. View the result: The script will display the corresponding solution or let you know if the identity is not recognized.
 
-        # Co-Function Identities
-        {"question": "sin(π/2 - θ)", "expression": "cos(θ)", "variables": {"θ": 0}},
-        {"question": "cos(π/2 - θ)", "expression": "sin(θ)", "variables": {"θ": 0}},
-        {"question": "tan(π/2 - θ)", "expression": "1 / tan(θ)", "variables": {"θ": 0}},
-        {"question": "cot(π/2 - θ)", "expression": "1 / cot(θ)", "variables": {"θ": 0}},
+## Example
 
-        # Double Angle Identities
-        {"question": "sin(2θ)", "expression": "2 * sin(θ) * cos(θ)", "variables": {"θ": 0}},
-        {"question": "cos(2θ)", "expression": "cos(θ)**2 - sin(θ)**2", "variables": {"θ": 0}},
-        {"question": "tan(2θ)", "expression": "2 * tan(θ) / (1 - tan(θ)**2)", "variables": {"θ": 0}},
+Enter a math question: sin^2(θ) + cos^2(θ)
+Answer: 1
 
-        # Half Angle Identities
-        {"question": "sin(θ/2)", "expression": "sqrt((1 - cos(θ)) / 2)", "variables": {"θ": 0}},
-        {"question": "cos(θ/2)", "expression": "sqrt((1 + cos(θ)) / 2)", "variables": {"θ": 0}},
-        {"question": "tan(θ/2)", "expression": "sqrt((1 - cos(θ)) / (1 + cos(θ)))", "variables": {"θ": 0}},
 
-        # Sum and Difference Identities
-        # ... Add more identities here ...
+## Contributing
 
-        # Product-to-Sum Identities
-        # ... Add more identities here ...
-    ]
+Contributions are welcome! If you have additional trigonometric identities or improvements to the script, feel free to create a pull request.
 
-    while True:
-        user_input = input("Enter a math question: ")
+## License
 
-        if user_input.lower() == "exit":
-            print("Exiting the bot.")
-            break
-
-        for identity in trig_identities:
-            if identity["question"] in user_input:
-                expression = identity["expression"]
-                for variable, value in identity["variables"].items():
-                    expression = expression.replace(variable, str(value))
-                result = solve_math_expression(expression)
-                print("Answer:", result)
-                break
-        else:
-            print("Identity not recognized. Please enter a valid trigonometric identity.")
-
-if __name__ == "__main__":
-    main()
-    
+This project is licensed under the [MIT License](LICENSE).
